@@ -1,0 +1,313 @@
+/* Thiết lập font chữ Inter làm mặc định cho sự thanh lịch */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* Định nghĩa màu sắc cao cấp */
+:root {
+    --lux-gold: #C8AA74; /* Richer, more pronounced Gold/Bronze */
+    --lux-dark: #050505; /* Near-absolute black for contrast */
+    --lux-mid: #121212; /* Darker mid tone */
+    --lux-bg-icon: #000000; /* Nền đen cho icon */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--lux-dark);
+    /* Thêm gradient radial nhẹ để tạo chiều sâu tinh tế */
+    background-image: radial-gradient(at 0% 0%, #1a1a1a 0%, var(--lux-dark) 80%);
+    transition: background-color 0.5s ease;
+}
+
+/* --- Hiệu ứng Fade-in --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Style cho nút chính (Vàng đồng sang trọng) --- */
+.lux-button {
+    background-color: var(--lux-gold); /* Vàng đồng */
+    color: var(--lux-dark);
+    font-weight: 700;
+    /* Áp dụng bóng vàng đồng mạnh mẽ */
+    box-shadow: 0 4px 25px rgba(200, 170, 116, 0.6);
+    transition: all 0.4s ease;
+}
+.lux-button:hover {
+    background-color: #D4B987; /* Sáng hơn một chút */
+    color: #000;
+    /* Thêm glow nhẹ bên trong */
+    box-shadow: 0 8px 30px rgba(200, 170, 116, 0.8), 0 0 15px var(--lux-gold) inset;
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* --- CSS cho thẻ (Card) --- */
+.lux-card {
+    background-color: var(--lux-mid);
+    transition: all 0.5s ease;
+    position: relative;
+    border: 1px solid var(--lux-mid);
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lux-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    /* Bóng đổ sâu hơn và viền vàng rõ nét */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9), 0 0 10px var(--lux-gold);
+    border-color: var(--lux-gold);
+}
+
+/* Thanh phân cách kim loại */
+.hero-separator::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, #C8AA74, #F2E3C6, #C8AA74); /* Dùng màu vàng mới */
+    margin: 1.5rem auto 0;
+    border-radius: 9999px;
+}
+
+/* Style cho nút filter */
+.filter-button.active {
+    background-color: var(--lux-gold);
+    color: var(--lux-dark);
+    box-shadow: 0 0 10px rgba(200, 170, 116, 0.5);
+}
+
+/* Fix: ensure filter button text color changes correctly */
+.filter-button.active span {
+    color: var(--lux-dark) !important;
+}
+
+/* --- CSS CHO ICON ỨNG DỤNG (BÓNG VÀNG ĐỒNG) --- */
+.lux-app-icon {
+    width: 56px; 
+    height: 56px;
+    background-color: var(--lux-bg-icon); 
+    border-radius: 12px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(200, 170, 116, 0.6), 
+                0 3px 15px rgba(200, 170, 116, 0.4); /* Tăng cường bóng */
+    transition: box-shadow 0.3s ease; 
+    flex-shrink: 0; 
+}
+.lux-app-icon:hover {
+    box-shadow: 0 0 20px rgba(200, 170, 116, 0.9), 
+                0 6px 30px rgba(200, 170, 116, 0.6);
+}
+
+/* Điều chỉnh kích thước icon trên mobile */
+@media (max-width: 640px) {
+    .lux-app-icon {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+/* =================================== */
+/* CSS CHO ĐÈN HIỆU ỨNG TRẠNG THÁI XANH */
+/* =================================== */
+.status-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #22c55e; /* Green-500 */
+    border-radius: 50%;
+    position: relative;
+    /* Hiệu ứng nhấp nháy/pulse */
+    box-shadow: 0 0 0 rgba(34, 197, 94, 0.6);
+    animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+    margin-right: 4px; /* Space between dot and text */
+}
+
+@keyframes ping {
+    0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+    }
+}
+/* =================================== */
+
+/* =================================== */
+/* --- Dynamic Island Style MỚI --- */
+/* =================================== */
+.dynamic-island-container {
+    /* Ensures proper spacing and centering */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.dynamic-island {
+    /* Base pill shape */
+    background-color: #000; /* Pure black, darker than lux-dark */
+    border-radius: 9999px; /* Full pill shape */
+    padding: 0.5rem 1.5rem;
+    
+    /* Initial state size */
+    width: 250px; 
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Glass/Glossy effect & Shadow for luxury look */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.9), 0 0 1px rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); 
+    
+    /* Transitions for the "Dynamic" feel */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border: 1px solid rgba(200, 170, 116, 0.3); /* Subtle gold border */
+}
+
+/* Interaction state: Expand slightly on hover */
+.dynamic-island:hover {
+    width: 320px; /* Expand slightly more */
+    border-color: var(--lux-gold);
+    box-shadow: 0 6px 40px rgba(0, 0, 0, 1), 0 0 15px var(--lux-gold);
+}
+
+.island-content {
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    white-space: nowrap; /* Prevents text wrap */
+}
+/* =================================== */
+
+/* =================================== */
+/* CSS CHO NÚT HOTLINE NỔI (FLOATING BUTTON) */
+/* =================================== */
+.floating-hotline {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 40; 
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--lux-gold);
+    color: var(--lux-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6), 0 0 15px rgba(200, 170, 116, 0.8);
+    animation: pulse 2s infinite; /* Thêm hiệu ứng nhấp nháy nhẹ */
+    transition: all 0.3s ease;
+}
+
+.floating-hotline:hover {
+    background-color: #D4B987;
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8), 0 0 20px #F2E3C6;
+    animation: none;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(200, 170, 116, 0.6); }
+    70% { box-shadow: 0 0 0 10px rgba(200, 170, 116, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(200, 170, 116, 0); }
+}
+
+@media (min-width: 768px) {
+    .floating-hotline {
+        display: none;
+    }
+}
+
+/* =================================== */
+/* CSS CHO MODAL */
+/* =================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95); /* Tối hơn */
+    z-index: 50; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--lux-mid);
+    max-width: 90%;
+    max-height: 90%;
+    width: 800px;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9), 0 0 15px var(--lux-gold); /* Thêm viền glow */
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.modal-overlay.open .modal-content {
+    transform: scale(1);
+}
+
+/* =================================== */
+/* CSS CHO HẠT BỤI VÀNG (Dust Particles) */
+/* =================================== */
+.dust-particles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden; /* Ngăn chặn cuộn do particles */
+}
+
+.dust-particle {
+    position: absolute;
+    width: 3px; /* Smaller */
+    height: 3px;
+    background-color: var(--lux-gold);
+    border-radius: 50%;
+    opacity: 0.4; /* More subtle */
+    box-shadow: 0 0 4px var(--lux-gold); /* Subtle glow on particle */
+    animation: float 20s infinite ease-in-out; /* Slower and smoother */
+}
+
+.dust-particle:nth-child(1) { animation-delay: 0s; transform: scale(1); }
+.dust-particle:nth-child(2) { animation-delay: 4s; transform: scale(1.2); }
+.dust-particle:nth-child(3) { animation-delay: 8s; transform: scale(0.8); }
+.dust-particle:nth-child(4) { animation-delay: 12s; transform: scale(1.1); }
+.dust-particle:nth-child(5) { animation-delay: 16s; transform: scale(0.9); }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+    25% { transform: translateY(-30px) translateX(15px) scale(1.05); }
+    50% { transform: translateY(30px) translateX(-15px) scale(0.95); }
+    75% { transform: translateY(15px) translateX(30px) scale(1.02); }
+}
