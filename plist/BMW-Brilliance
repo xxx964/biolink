@@ -23,9 +23,7 @@
                 <key>kind</key>
                 <string>software</string>
                 <key>title</key>
-                <string>ESign BMW Brilliance</string>
-                <key>subtitle</key>
-                <string>ESign BMW Brilliance</string>
+                <string>ESign Beijing Esensoft</string>
                 <key>minimum-os-version</key>
                 <string>10.0</string>
             </dict>
