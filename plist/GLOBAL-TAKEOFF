@@ -17,15 +17,13 @@
             <key>metadata</key>
             <dict>
                 <key>bundle-identifier</key>
-                <string>p3.xyz.yyyue.esign.gl</string>
+                <string>p3.xyz.yyyue.esign.cre</string>
                 <key>bundle-version</key>
                 <string>5.0.1</string>
                 <key>kind</key>
                 <string>software</string>
                 <key>title</key>
-                <string>ESign</string>
-                <key>subtitle</key>
-                <string>ESign GLOBAL TAKEOFF</string>
+                <string>ESign GLOBAL TAKEOFF1</string>
                 <key>minimum-os-version</key>
                 <string>10.0</string>
             </dict>
