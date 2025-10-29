@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AppleP12 - Chia Sẻ Chứng Chỉ Miễn Phí</title>
-    <meta name="description" content="Apple P12 cung cấp các giải pháp chữ ký số, chứng thư bảo mật ESign và Cert cao cấp. Tải xuống các phiên bản mới nhất và nhận hỗ trợ 24/7.">
+    <title>Apple P12 - Chia Sẻ Chứng Chỉ Miễn Phí</title>
+    <meta name="description" content="Chứng Chỉ Doanh Nghiệp.">
+    
+    <!-- Thêm Favicon (Biểu tượng tab) -->
+    <link rel="icon" type="image/png" href="https://i.imgur.com/IFp0Klx.png">
+    <link rel="apple-touch-icon" href="https://i.imgur.com/IFp0Klx.png">
+    
+    <!-- Tải Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tải CSS Tùy chỉnh -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="text-gray-100 min-h-screen">
 
+    <!-- SVG Biểu tượng (Tối ưu hóa) -->
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="icon-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
@@ -18,9 +27,11 @@
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-5.6-5.6A19.79 19.79 0 0 1 2 4.18a2 2 0 0 1 2-2h3.06a2 2 0 0 1 2 1.77 10.68 10.68 0 0 0 .54 2 2 2 0 0 1-.48 2l-1.34 1.34a1 1 0 0 0 .35 1.61 15.19 15.19 0 0 0 3.86 3.86 1 1 0 0 0 1.61 .35l1.34-1.34a2 2 0 0 1 2-.48 10.68 10.68 0 0 0 2 .54 2 2 0 0 1 1.77 2.06z"/>
         </symbol>
     </svg>
-    
+
+    <!-- Particle Background Placeholder -->
     <div id="particles-js" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;"></div>
     
+    <!-- Golden Dust Particles -->
     <div class="dust-particles">
         <div class="dust-particle" style="top: 20%; left: 15%;"></div>
         <div class="dust-particle" style="top: 40%; left: 80%;"></div>
@@ -29,6 +40,7 @@
         <div class="dust-particle" style="top: 85%; left: 70%;"></div>
     </div>
     
+    <!-- Thanh Điều Hướng (Navigation Bar) -->
     <header class="p-4 md:p-6 shadow-2xl bg-black/50 backdrop-blur-sm sticky top-0 z-20 border-b border-neutral-800/70">
         <div class="max-w-7xl mx-auto flex justify-center">
             <nav class="flex space-x-6 sm:space-x-10 md:space-x-12 text-sm sm:text-base font-medium">
@@ -39,6 +51,7 @@
         </div>
     </header>
 
+    <!-- Phần Hero (Giới Thiệu Lớn) -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32" style="position: relative; z-index: 1">
         <section id="gioithieu" class="text-center fade-in">
             <p class="text-sm uppercase tracking-[0.3em] text-gray-500 mb-4">SHARE CHỨNG CHỈ DOANH NGHIỆP</p>
@@ -46,32 +59,40 @@
                 <span class="text-white">Apple</span> 
                 <span class="text-[--lux-gold] inline-block">P12</span>
             </h2>
-             
             <div class="hero-separator"></div>
 
             <p class="text-lg md:text-xl text-gray-400 mt-8 mb-12 max-w-4xl mx-auto">
                 964.xx
             </p>
             
+            <!-- KHỐI DYNAMIC ISLAND -->
             <div class="dynamic-island-container fade-in" style="transition-delay: 0.5s;">
                 <a href="#dichvu" class="dynamic-island group" aria-label="Khám phá Thư viện Tải xuống">
                     <div class="island-content">
+                        <!-- ICON: Pulsing Dot (Trạng thái sẵn sàng) -->
                         <span class="status-indicator mr-3"></span>
+                        
+                        <!-- TEXT: Khám Phá Ngay -->
                         <span class="text-lg font-bold text-white tracking-wider transition-colors duration-300">
                             KHÁM PHÁ NGAY
                         </span>
+                        
+                        <!-- ICON: Mũi tên vàng nhỏ (Chỉ hiện khi hover) -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 text-[--lux-gold] opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
                     </div>
                 </a>
             </div>
+            <!-- KẾT THÚC KHỐI DYNAMIC ISLAND -->
         </section>
 
+        <!-- Phần Tải Xuống (Download Section) -->
         <section id="dichvu" class="mt-24 md:mt-36">
             <h3 class="text-4xl md:text-5xl font-bold mb-4 text-center fade-in tracking-tight">Thư Viện Tải Xuống</h3>
             <p class="text-center text-gray-500 mb-12 fade-in" style="transition-delay: 0.2s;">Chọn danh mục để xem các tài nguyên độc quyền.</p>
             
+            <!-- Nút Lọc (Filter Buttons) -->
             <div class="flex justify-center mb-12 fade-in" style="transition-delay: 0.3s;">
                 <div class="inline-flex rounded-full border border-neutral-700 p-1 bg-neutral-800/50 shadow-inner items-center">
                     
@@ -83,7 +104,6 @@
                             <span>eSign</span>
                         </div>
                     </button>
-             
                     <button onclick="filterItems(this, 'cert')" class="filter-button bg-transparent text-gray-300 hover:text-white font-semibold py-2 px-6 rounded-full text-sm transition duration-300 group">
                         <div class="flex items-center space-x-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[--lux-gold] group-[.active]:text-black transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -96,15 +116,11 @@
                             <span>Cert</span>
                         </div>
                     </button>
-           
                     <button onclick="filterItems(this, 'mods')" class="filter-button bg-transparent text-gray-300 hover:text-white font-semibold py-2 px-6 rounded-full text-sm transition duration-300 group">
                         <div class="flex items-center space-x-2">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[--lux-gold] group-[.active]:text-black transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="3"/>
-                                <path d="M19.7 4.3a1 1 0 0 1 0 1.4l-1.4 1.4a1 1 0 0 1-1.4 0l-1.4-1.4a1 1 0 0 1 0-1.4l1.4-1.4a1 1 0 0 1 1.4 0z"/>
-                                <path d="M4.3 19.7a1 1 0 0 0 0 1.4l1.4 1.4a1 1 0 0 0 1.4 0l1.4-1.4a1 1 0 0 0 0-1.4l-1.4-1.4a1 1 0 0 0-1.4 0z"/>
-                                <path d="M20 12a8 8 0 0 0-8-8"/>
-                                <path d="M12 20a8 8 0 0 0 8-8"/>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
                             </svg>
                             <span>Mods</span>
                         </div>
@@ -113,6 +129,9 @@
             </div>
 
             <div class="grid gap-8 max-w-4xl mx-auto" id="downloads-container">
+                <!-- ============================================= -->
+                <!-- ESign items -->
+                <!-- ============================================= -->
                 
                 <div class="lux-card p-4 sm:p-6 rounded-3xl shadow-2xl fade-in" data-category="esign" data-initial-downloads="5200" style="transition-delay: 0.0s;">
                     <div class="flex items-center space-x-4 sm:space-x-6">
@@ -132,9 +151,7 @@
                         </div>
                     </div>
                     <a href="itms-services://?action=download-manifest&url=https://applep12.vn/plist/GLOBAL-TAKEOFF" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -153,9 +170,7 @@
                         </div>
                     </div>
                     <a href="itms-services://?action=download-manifest&url=https://applep12.vn/plist/BMW-Brilliance" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -174,9 +189,7 @@
                         </div>
                     </div>
                     <a href="itms-services://?action=download-manifest&url=https://applep12.vn/plist/Beijing-Esensoft" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -195,9 +208,7 @@
                         </div>
                     </div>
                     <a href="itms-services://?action=download-manifest&url=https://applep12.vn/plist/Guangzhou-Huahan" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -216,9 +227,7 @@
                         </div>
                     </div>
                     <a href="itms-services://?action=download-manifest&url=https://applep12.vn/plist/China-Railway" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -237,9 +246,7 @@
                         </div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -258,9 +265,7 @@
                         </div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -279,9 +284,7 @@
                         </div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -300,9 +303,7 @@
                         </div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -321,9 +322,7 @@
                         </div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -342,9 +341,7 @@
                         </div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -363,9 +360,7 @@
                         </div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -384,9 +379,7 @@
                         </div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -405,9 +398,7 @@
                         </div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -426,12 +417,14 @@
                         </div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
                 
+                <!-- ============================================= -->
+                <!-- Cert items -->
+                <!-- ============================================= -->
+
                 <div class="lux-card p-4 sm:p-6 rounded-3xl shadow-2xl fade-in" data-category="cert" style="transition-delay: 1.5s; display: none;">
                     <div class="flex items-center space-x-4 sm:space-x-6">
                         <div class="lux-app-icon">
@@ -440,9 +433,7 @@
                         <div><h4 class="text-xl sm:text-2xl font-bold tracking-tight">Cert Package v15</h4><p class="text-gray-400 text-sm mt-1">Bộ chứng thư số tiêu chuẩn (15/15).</p><p class="text-xs text-[--lux-gold] mt-2 font-medium">Đã tải: 4500 lượt</p></div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -454,9 +445,7 @@
                         <div><h4 class="text-xl sm:text-2xl font-bold tracking-tight">Cert Package v14</h4><p class="text-gray-400 text-sm mt-1">Bộ chứng thư số tiêu chuẩn (14/15).</p><p class="text-xs text-[--lux-gold] mt-2 font-medium">Đã tải: 4200 lượt</p></div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -468,9 +457,7 @@
                         <div><h4 class="text-xl sm:text-2xl font-bold tracking-tight">Cert Package v13</h4><p class="text-gray-400 text-sm mt-1">Bộ chứng thư số tiêu chuẩn (13/15).</p><p class="text-xs text-[--lux-gold] mt-2 font-medium">Đã tải: 3900 lượt</p></div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -482,9 +469,7 @@
                         <div><h4 class="text-xl sm:text-2xl font-bold tracking-tight">Cert Package v12</h4><p class="text-gray-400 text-sm mt-1">Bộ chứng thư số tiêu chuẩn (12/15).</p><p class="text-xs text-[--lux-gold] mt-2 font-medium">Đã tải: 3600 lượt</p></div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -496,9 +481,7 @@
                         <div><h4 class="text-xl sm:text-2xl font-bold tracking-tight">Cert Package v11</h4><p class="text-gray-400 text-sm mt-1">Bộ chứng thư số tiêu chuẩn (11/15).</p><p class="text-xs text-[--lux-gold] mt-2 font-medium">Đã tải: 3300 lượt</p></div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -510,9 +493,7 @@
                         <div><h4 class="text-xl sm:text-2xl font-bold tracking-tight">Cert Package v10</h4><p class="text-gray-400 text-sm mt-1">Bộ chứng thư số tiêu chuẩn (10/15).</p><p class="text-xs text-[--lux-gold] mt-2 font-medium">Đã tải: 3000 lượt</p></div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -524,9 +505,7 @@
                         <div><h4 class="text-xl sm:text-2xl font-bold tracking-tight">Cert Package v9</h4><p class="text-gray-400 text-sm mt-1">Bộ chứng thư số tiêu chuẩn (9/15).</p><p class="text-xs text-[--lux-gold] mt-2 font-medium">Đã tải: 2700 lượt</p></div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -538,9 +517,7 @@
                         <div><h4 class="text-xl sm:text-2xl font-bold tracking-tight">Cert Package v8</h4><p class="text-gray-400 text-sm mt-1">Bộ chứng thư số tiêu chuẩn (8/15).</p><p class="text-xs text-[--lux-gold] mt-2 font-medium">Đã tải: 2400 lượt</p></div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -552,9 +529,7 @@
                         <div><h4 class="text-xl sm:text-2xl font-bold tracking-tight">Cert Package v7</h4><p class="text-gray-400 text-sm mt-1">Bộ chứng thư số tiêu chuẩn (7/15).</p><p class="text-xs text-[--lux-gold] mt-2 font-medium">Đã tải: 2100 lượt</p></div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -566,9 +541,7 @@
                         <div><h4 class="text-xl sm:text-2xl font-bold tracking-tight">Cert Package v6</h4><p class="text-gray-400 text-sm mt-1">Bộ chứng thư số tiêu chuẩn (6/15).</p><p class="text-xs text-[--lux-gold] mt-2 font-medium">Đã tải: 1800 lượt</p></div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -580,9 +553,7 @@
                         <div><h4 class="text-xl sm:text-2xl font-bold tracking-tight">Cert Package v5</h4><p class="text-gray-400 text-sm mt-1">Bộ chứng thư số tiêu chuẩn (5/15).</p><p class="text-xs text-[--lux-gold] mt-2 font-medium">Đã tải: 1500 lượt</p></div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -594,9 +565,7 @@
                         <div><h4 class="text-xl sm:text-2xl font-bold tracking-tight">Cert Package v4</h4><p class="text-gray-400 text-sm mt-1">Bộ chứng thư số tiêu chuẩn (4/15).</p><p class="text-xs text-[--lux-gold] mt-2 font-medium">Đã tải: 1200 lượt</p></div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -608,9 +577,7 @@
                         <div><h4 class="text-xl sm:text-2xl font-bold tracking-tight">Cert Package v3</h4><p class="text-gray-400 text-sm mt-1">Bộ chứng thư số tiêu chuẩn (3/15).</p><p class="text-xs text-[--lux-gold] mt-2 font-medium">Đã tải: 900 lượt</p></div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -622,9 +589,7 @@
                         <div><h4 class="text-xl sm:text-2xl font-bold tracking-tight">Cert Package v2</h4><p class="text-gray-400 text-sm mt-1">Bộ chứng thư số tiêu chuẩn (2/15).</p><p class="text-xs text-[--lux-gold] mt-2 font-medium">Đã tải: 600 lượt</p></div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
 
@@ -636,12 +601,11 @@
                         <div><h4 class="text-xl sm:text-2xl font-bold tracking-tight">Cert Package v1</h4><p class="text-gray-400 text-sm mt-1">Bộ chứng thư số tiêu chuẩn (1/15).</p><p class="text-xs text-[--lux-gold] mt-2 font-medium">Đã tải: 300 lượt</p></div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
                 
+                <!-- Mods items -->
                 <div class="lux-card p-4 sm:p-6 rounded-3xl shadow-2xl fade-in" data-category="mods" style="transition-delay: 3.0s; display: none;">
                     <div class="flex items-center space-x-4 sm:space-x-6">
                         <div class="lux-app-icon">
@@ -660,9 +624,8 @@
                         </div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
+S
                     </a>
                 </div>
 
@@ -684,14 +647,15 @@
                         </div>
                     </div>
                     <a href="#" class="lux-button p-3 rounded-full transition duration-300 hover:scale-105" aria-label="Tải Xuống">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                            <use href="#icon-download"></use>
-                        </svg>
+                        <svg class="w-6 h-6 text-black"><use href="#icon-download"></use></svg>
                     </a>
                 </div>
             </div>
         </section>
 
+        <!-- =================================== -->
+        <!-- PHẦN MODAL (HỘP THOẠI BẬT LÊN) -->
+        <!-- =================================== -->
         <div id="policyModal" class="modal-overlay" onclick="closeModal()">
             <div class="modal-content overflow-y-auto" onclick="event.stopPropagation()">
                 <div class="flex justify-between items-center border-b border-neutral-700/50 pb-3 mb-4 sticky top-0 bg-[--lux-mid] z-10">
@@ -703,6 +667,7 @@
                     </button>
                 </div>
                 <div class="text-gray-300 space-y-6 text-sm" id="modalContent">
+                    <!-- Tab Navigation -->
                     <div class="flex border-b border-neutral-700/50 mb-6">
                         <button onclick="changeModalTab('intro')" class="modal-tab active px-4 py-2 text-[--lux-gold] font-medium border-b-2 border-[--lux-gold]">
                             Giới Thiệu
@@ -712,6 +677,7 @@
                         </button>
                     </div>
 
+                    <!-- Introduction Tab Content -->
                     <div id="introTab" class="tab-content active">
                         <div class="bg-[#1a1a1a] p-6 rounded-xl border border-[--lux-gold]/30 mb-6">
                             <h3 class="text-xl font-bold text-[--lux-gold] mb-4">Tầm Nhìn Của Chúng Tôi</h3>
@@ -752,6 +718,7 @@
                         </div>
                     </div>
 
+                    <!-- Policy Tab Content (hidden by default) -->
                     <div id="policyTab" class="tab-content hidden">
                         <h3 class="text-xl font-bold text-white">1. Chính Sách Bảo Mật (Privacy Policy)</h3>
                         <p class="text-gray-400">
@@ -780,14 +747,17 @@
                 </div>
             </div>
         </div>
+
     </main>
 
+    <!-- Hotline Nổi (Dành cho Mobile) -->
     <a href="tel:+84869775233" class="floating-hotline" title="Gọi ngay Hotline Hỗ trợ">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
             <use href="#icon-phone"></use>
         </svg>
     </a>
     
+    <!-- Footer Liên Hệ -->
     <footer id="lienhe" class="mt-24 border-t border-neutral-800/70 bg-black/50 p-12 md:p-16 text-center">
         <div class="max-w-4xl mx-auto fade-in">
             <h4 class="text-3xl font-bold mb-4 tracking-tight">Liên Hệ Độc Quyền</h4>
@@ -795,13 +765,16 @@
                 Để bắt đầu hành trình kỹ thuật số của bạn hoặc yêu cầu hỗ trợ cao cấp, vui lòng liên hệ.
             </p>
             
+            <!-- Hotline và Email -->
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8 mb-8">
+                <!-- Email -->
                 <a href="mailto:applep12.vn@gmail.com" class="text-lg md:text-xl text-[--lux-gold] font-medium hover:text-amber-300 transition duration-300 hover:underline">
                     applep12.vn@gmail.com
                 </a>
                 
+                <!-- Hotline -->
                 <a href="tel:+84869775233" class="text-lg md:text-xl text-white font-bold transition duration-300 hover:text-[--lux-gold] flex items-center group">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-[--lux-gold] group-hover:text-amber-300 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg class="h-6 w-6 mr-2 text-[--lux-gold] group-hover:text-amber-300 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <use href="#icon-phone"></use>
                     </svg>
                     +84 869 775 233
@@ -812,6 +785,7 @@
         </div>
     </footer>
 
+    <!-- Tải Particles.js và Logic Tùy chỉnh (Script.js) -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
 </body>
