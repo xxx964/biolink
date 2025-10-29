@@ -23,9 +23,7 @@
                 <key>kind</key>
                 <string>software</string>
                 <key>title</key>
-                <string>ESign</string>
-                <key>subtitle</key>
-                <string>ESign Beijing Esensoft</string>
+                <string>Beijing Esensoft</string>
                 <key>minimum-os-version</key>
                 <string>10.0</string>
             </dict>
