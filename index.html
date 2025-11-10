@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Switch Toggle</title>
+    <!-- Tải Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Cấu hình Tailwind để sử dụng class 'dark' cho dark mode
+        tailwind.config = {
+            darkMode: 'class', 
+        }
+    </script>
+    <style>
+        /* --- CSS của bạn cho Theme Switch --- */
+        /* Nguồn: Uiverse.io by JustCode14 */
+        /* Theme Switch */
+        /* The switch - the box around the slider */
+        .switch {
+          position: relative;
+          display: inline-block;
+          width: 90px;
+          height: 40px;
+          border: 1px solid rgb(58, 58, 58);
+          border-radius: 22px;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+
+        /* The slider */
+        .slider {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: black;
+          border-radius: 20px;
+          transition: 0.4s;
+          overflow: hidden;
+          z-index: 2;
+        }
+
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 30px;
+          width: 30px;
+          left: 4px;
+          bottom: 5px;
+          background-color: white;
+          transition: 1s;
+          border-radius: 50%;
+          overflow: hidden;
+        }
+
+        .moons-hole {
+          content: "";
+          position: absolute;
+          opacity: 1;
+          transition: 1s;
+        }
+
+        .moon-hole {
+          position: absolute;
+          border-radius: 50%;
+          transform: translateX(0px);
+        }
+
+        .moon-hole:nth-child(1) {
+          background-color: rgb(85, 85, 85);
+          height: 5px;
+          width: 5px;
+          top: 26px;
+          left: 20px;
+        }
+
+        .moon-hole:nth-child(2) {
+          background-color: rgb(85, 85, 85);
+          height: 10px;
+          width: 10px;
+          top: 16px;
+          left: 7px;
+        }
+
+        .moon-hole:nth-child(3) {
+          background-color: rgb(85, 85, 85);
+          height: 4px;
+          width: 4px;
+          top: 12px;
+          left: 21px;
+        }
+
+        input:checked + .slider {
+          background-color: #62cff0;
+        }
+
+        input:checked + .slider:before {
+          transform: translateX(52px);
+          background-color: orange;
+        }
+
+        input:checked + .slider .moons-hole {
+          transform: translateX(52px);
+          opacity: 0;
+        }
+
+        .stars {
+          right: 6px;
+          top: 0;
+          bottom: 0;
+          transition: 1s;
+          transform: translateY(0px);
+        }
+
+        .star {
+          position: absolute;
+          fill: white;
+          animation: star-twinkle 2s infinite;
+          opacity: 1;
+        }
+
+        /* Posizionamento casuale dei puntini */
+        .star:nth-child(1) {
+          top: 5px;
+          right: 29px;
+          width: 20px;
+          animation-delay: 0.3s;
+        }
+
+        .star:nth-child(2) {
+          top: 18px;
+          right: 9px;
+          width: 15px;
+        }
+
+        .star:nth-child(3) {
+          top: 5px;
+          right: 15px;
+          width: 10px;
+          animation-delay: 0.6s;
+        }
+
+        .star:nth-child(4) {
+          top: 26px;
+          right: 28px;
+          width: 12px;
+          animation-delay: 0.9s;
+        }
+
+        .star:nth-child(5) {
+          top: 2px;
+          right: 50px;
+          width: 8px;
+          animation-delay: 1.2s;
+        }
+
+        input:checked + .slider .stars {
+          transform: translateY(-32px);
+          opacity: 0;
+        }
+
+        @keyframes star-twinkle {
+          0% {
+            transform: scale(1);
+          }
+
+          40% {
+            transform: scale(1.2);
+          }
+
+          80% {
+            transform: scale(0.8);
+          }
+
+          100% {
+            transform: scale(1);
+          }
+        }
+
+        .clouds {
+          position: absolute;
+          left: 6px;
+          top: 0;
+          bottom: 0;
+          width: 20px;
+          transition: 1s;
+          transform: translateX(-55px);
+        }
+
+        .black-clouds {
+          position: absolute;
+          left: 6px;
+          top: 0;
+          bottom: 0;
+          width: 20px;
+          transition: 1s;
+          transform: translateX(-55px);
+          opacity: 0;
+          z-index: 0;
+        }
+
+        .black-cloud {
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          background-color: #555; /* Grigio più scuro per simulare nuvola */
+          opacity: 60%;
+          border-radius: 50%;
+          animation: cloud-move 6s infinite;
+          animation-delay: 1s;
+        }
+
+        .black-cloud:nth-child(1) {
+          top: 1px;
+          right: 3px;
+        }
+
+        .black-cloud:nth-child(2) {
+          top: 15px;
+          left: 9px;
+        }
+
+        .black-cloud:nth-child(3) {
+          top: 20px;
+          left: 27px;
+        }
+
+        input:checked + .slider .black-clouds {
+          transform: translateX(32px);
+          opacity: 1;
+        }
+
+        .cloud {
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          background-color: white;
+          border-radius: 50%;
+          z-index: 1;
+          animation: cloud-move 6s infinite;
+        }
+
+        .cloud:nth-child(1) {
+          top: 0;
+          height: 21px;
+          width: 21px;
+          right: 14px;
+        }
+
+        .cloud:nth-child(2) {
+          height: 25px;
+          width: 25px;
+          border-radius: 50%;
+          top: 14px;
+          right: 6px;
+        }
+
+        .cloud:nth-child(3) {
+          height: 23px;
+          width: 23px;
+          top: 28px;
+          left: 4px;
+        }
+
+        .cloud:nth-child(4) {
+          top: 26px;
+          left: 20px;
+        }
+
+        .cloud:nth-child(5) {
+          top: 30px;
+          left: 30px;
+        }
+
+        .cloud:nth-child(6) {
+          top: 27px;
+          left: 46px;
+        }
+
+        .cloud:nth-child(7) {
+          top: 31px;
+          left: 58px;
+        }
+
+        input:checked + .slider .clouds {
+          transform: translateX(32px);
+          opacity: 1;
+        }
+
+        @keyframes cloud-move {
+          0% {
+            transform: translateX(-32px);
+          }
+
+          40% {
+            transform: translateX(-36px);
+          }
+
+          80% {
+            transform: translateX(-28px);
+          }
+
+          100% {
+            transform: translateX(-32px);
+          }
+        }
+
+        /* --- CSS cho Glass Radio Group --- */
+        /* Nguồn: Uiverse.io by chase2k25 */
+        .glass-radio-group {
+          /* --bg: rgba(255, 255, 255, 0.06); */ /* Gốc (tệ ở light mode) */
+          /* --text: #e5e5e5; */               /* Gốc (tệ ở light mode) */
+
+          /* Mặc định cho Light Mode */
+          --bg: rgba(0, 0, 0, 0.05); /* Nền hơi tối, trong suốt */
+          --text: #374151; /* Chữ màu xám đậm (zinc-700) */
+
+          display: flex;
+          position: relative;
+          background: var(--bg);
+          border-radius: 1rem;
+          backdrop-filter: blur(12px);
+          box-shadow:
+            inset 1px 1px 4px rgba(255, 255, 255, 0.2),
+            inset -1px -1px 6px rgba(0, 0, 0, 0.3),
+            0 4px 12px rgba(0, 0, 0, 0.15);
+          overflow: hidden;
+          width: fit-content;
+          /* Thêm một chút margin-top để tách biệt */
+          margin-top: 2rem; 
+        }
+
+        /* Thêm: Ghi đè cho Dark Mode */
+        .dark .glass-radio-group {
+            --bg: rgba(255, 255, 255, 0.06); /* Nền trong suốt trắng */
+            --text: #e5e5e5; /* Chữ màu xám nhạt */
+        }
+
+        .glass-radio-group input {
+          display: none;
+        }
+
+        .glass-radio-group label {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 80px;
+          font-size: 14px;
+          padding: 0.8rem 1.6rem;
+          cursor: pointer;
+          font-weight: 600;
+          letter-spacing: 0.3px;
+          color: var(--text);
+          position: relative;
+          z-index: 2;
+          transition: color 0.3s ease-in-out;
+        }
+
+        .glass-radio-group label:hover {
+          /* color: white; */ /* Gốc */
+          color: #000; /* Mặc định cho Light Mode */
+        }
+        
+        /* Thêm: Ghi đè hover cho Dark Mode */
+        .dark .glass-radio-group label:hover {
+            color: white;
+        }
+
+        .glass-radio-group input:checked + label {
+          /* color: #fff; */ /* Gốc */
+          color: #1f2937; /* Luôn là màu tối (zinc-800) vì nền (glider) luôn sáng */
+        }
+
+        .glass-glider {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: calc(100% / 3);
+          border-radius: 1rem;
+          z-index: 1;
+          transition:
+            transform 0.5s cubic-bezier(0.37, 1.95, 0.66, 0.56),
+            background 0.4s ease-in-out,
+            box-shadow 0.4s ease-in-out;
+        }
+
+        /* Silver */
+        #glass-silver:checked ~ .glass-glider {
+          transform: translateX(0%);
+          background: linear-gradient(135deg, #c0c0c055, #e0e0e0);
+          box-shadow:
+            0 0 18px rgba(192, 192, 192, 0.5),
+            0 0 10px rgba(255, 255, 255, 0.4) inset;
+        }
+
+        /* Gold */
+        #glass-gold:checked ~ .glass-glider {
+          transform: translateX(100%);
+          background: linear-gradient(135deg, #ffd70055, #ffcc00);
+          box-shadow:
+            0 0 18px rgba(255, 215, 0, 0.5),
+            0 0 10px rgba(255, 235, 150, 0.4) inset;
+        }
+
+        /* Platinum */
+        #glass-platinum:checked ~ .glass-glider {
+          transform: translateX(200%);
+          background: linear-gradient(135deg, #d0e7ff55, #a0d8ff);
+          box-shadow:
+            0 0 18px rgba(160, 216, 255, 0.5),
+            0 0 10px rgba(200, 240, 255, 0.4) inset;
+        }
+
+        /* --- CSS cho Card --- */
+        /* Nguồn: Uiverse.io by JohnnyCSilva (Đã tinh chỉnh) */
+        .card {
+          width: 100%;
+          max-width: 290px;
+          height: 70px;
+          /* background: #353535; */ /* Đã thay đổi */
+          background: rgba(0, 0, 0, 0.05); /* Giống .glass-radio-group light mode */
+          border-radius: 20px;
+          display: flex;
+          align-items: center;
+          /* justify-content: left; */ /* Đã bỏ để dùng flex-grow */
+          backdrop-filter: blur(10px);
+          transition: 0.5s ease-in-out;
+          margin-top: 2rem; /* Thêm margin */
+          padding-right: 15px; /* Thêm padding cho icon */
+          box-sizing: border-box; /* Đảm bảo padding không làm vỡ layout */
+          /* Thêm shadow để tạo hiệu ứng "bong bóng" */
+          box-shadow:
+            inset 1px 1px 4px rgba(255, 255, 255, 0.2),
+            inset -1px -1px 6px rgba(0, 0, 0, 0.3),
+            0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Thêm: Ghi đè .card cho Dark Mode */
+        .dark .card {
+            background: rgba(255, 255, 255, 0.06); /* Giống .glass-radio-group dark mode */
+        }
+
+        .card:hover {
+          cursor: pointer;
+          transform: scale(1.05);
+        }
+
+        /* Đã sửa lại cho <img> */
+        .img {
+          width: 50px;
+          height: 50px;
+          margin-left: 10px;
+          border-radius: 10px;
+          /* background: linear-gradient(#d7cfcf, #9198e5); */ /* Đã thay đổi */
+          border: 2px solid #9198e5; /* Thay thế background */
+          object-fit: cover; /* Thêm để 'cân đối' */
+          transition: 0.5s ease-in-out; 
+          flex-shrink: 0; /* Ngăn ảnh bị bóp */
+        }
+
+        .card:hover > .img {
+          /* background: linear-gradient(#9198e5, #712020); */ /* Đã thay đổi */
+          border-color: #712020; /* Thay thế background hover */
+        }
+
+        .textBox {
+          /* width: calc(100% - 90px); */ /* Đã thay đổi */
+          flex-grow: 1; /* Thêm để co giãn */
+          margin-left: 10px;
+          /* color: white; */ /* Gốc */
+          color: #374151; /* Mặc định cho Light Mode (giống --text) */
+          font-family: 'Poppins' sans-serif;
+          overflow: hidden; /* Chống tràn text */
+        }
+
+        /* Thêm: Ghi đè .textBox cho Dark Mode */
+        .dark .textBox {
+            color: white; /* Quay lại màu trắng ở dark mode */
+        }
+
+        .textContent {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .span {
+          font-size: 10px;
+          flex-shrink: 0; /* Ngăn '12 min ago' bị bóp */
+          padding-left: 8px; /* Thêm khoảng cách */
+        }
+
+        .h1 {
+          font-size: 16px;
+          font-weight: bold;
+          white-space: nowrap; /* Ngăn h1 xuống dòng */
+          overflow: hidden;
+          text-overflow: ellipsis; /* Thêm ... nếu quá dài */
+        }
+
+        .p {
+          font-size: 12px;
+          font-weight: lighter;
+          white-space: nowrap; /* Ngăn p xuống dòng */
+          overflow: hidden;
+          text-overflow: ellipsis; /* Thêm ... nếu quá dài */
+        }
+        
+        /* --- CSS cho Icon Tải Xuống --- */
+        .download-container {
+            margin-left: 10px; /* Tách khỏi text */
+            flex-shrink: 0; /* Không co lại */
+        }
+        
+        .download-icon {
+            /* stroke: #e5e5e5; */ /* Gốc */
+            stroke: #374151; /* Mặc định cho Light Mode (giống --text) */
+            transition: 0.3s ease;
+        }
+        
+        /* Thêm: Ghi đè .download-icon cho Dark Mode */
+        .dark .download-icon {
+            stroke: #e5e5e5; /* Màu xám nhạt ở dark mode */
+        }
+
+        .card:hover .download-icon {
+            /* stroke: #fff; */ /* Gốc */
+            stroke: #000; /* Đen ở Light Mode */
+            transform: scale(1.1);
+        }
+
+        /* Thêm: Ghi đè .download-icon hover cho Dark Mode */
+        .dark .card:hover .download-icon {
+            stroke: #fff; /* Trắng ở Dark Mode */
+        }
+
+        /* --- CSS cho Hiển thị Nội dung Động --- */
+        .content-panel {
+            display: none; /* Ẩn theo mặc định */
+            width: 100%;
+            max-width: 1024px; /* lg */
+            
+            /* Mobile-first: một cột (hiện 1 hàng dọc) */
+            flex-direction: column;
+            align-items: center; /* Căn giữa cột */
+
+            gap: 1rem; /* 16px */
+            margin-top: 2rem; /* 32px */
+        }
+        
+        /* PC (sm: 640px trở lên): Chuyển sang hàng và bọc (hiện đầy đủ) */
+        @media (min-width: 640px) {
+            .content-panel {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: stretch; /* Đặt lại align-items */
+            }
+        }
+        
+        /* Sử dụng :has() để kiểm tra radio nào đang được chọn bên trong .glass-radio-group */
+        /* Hiển thị #silver-content NẾU .glass-radio-group chứa #glass-silver:checked */
+        .glass-radio-group:has(#glass-silver:checked) ~ #silver-content {
+            display: flex;
+        }
+
+        /* Hiển thị #gold-content NẾU .glass-radio-group chứa #glass-gold:checked */
+        /* ĐÃ SỬA LỖI: #glass-gold:checked (từ #gold-content:checked) */
+        .glass-radio-group:has(#glass-gold:checked) ~ #gold-content {
+            display: flex;
+        }
+
+        /* Hiển thị #platinum-content NẾU .glass-radio-group chứa #glass-platinum:checked */
+        /* ĐÃ SỬA LỖI: #glass-platinum:checked (từ #platinum-content:checked) */
+        .glass-radio-group:has(#glass-platinum:checked) ~ #platinum-content {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-zinc-900 transition-colors duration-500 font-sans">
+
+    <div class="flex flex-col justify-center items-center min-h-screen p-4">
+        
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-zinc-900 dark:text-white">Trang Web Mẫu</h1>
+            <p class="text-lg text-zinc-600 dark:text-zinc-300">Nhấp vào công tắc để đổi chủ đề!</p>
+        </div>
+
+        <!-- --- HTML của bạn cho Theme Switch --- -->
+        <label class="switch">
+          <input type="checkbox" id="toggle" />
+          <span class="slider">
+            <div class="moons-hole">
+              <div class="moon-hole"></div>
+              <div class="moon-hole"></div>
+              <div class="moon-hole"></div>
+            </div>
+            <div class="black-clouds">
+              <div class="black-cloud"></div>
+              <div class="black-cloud"></div>
+              <div class="black-cloud"></div>
+            </div>
+            <div class="clouds">
+              <div class="cloud"></div>
+              <div class="cloud"></div>
+              <div class="cloud"></div>
+              <div class="cloud"></div>
+              <div class="cloud"></div>
+              <div class="cloud"></div>
+              <div class="cloud"></div>
+            </div>
+            <div class="stars">
+              <svg class="star" viewBox="0 0 20 20">
+                <path
+                  d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+                ></path>
+              </svg>
+              <svg class="star" viewBox="0 0 20 20">
+                <path
+                  d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+                ></path>
+              </svg>
+              <svg class="star" viewBox="0 0 20 20">
+                <path
+                  d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+                ></path>
+              </svg>
+              <svg class="star" viewBox="0 0 20 20">
+                <path
+                  d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+                ></path>
+              </svg>
+              <svg class="star" viewBox="0 0 20 20">
+                <path
+                  d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+                ></path>
+              </svg>
+            </div>
+          </span>
+        </label>
+        <!-- --- Hết HTML của bạn --- -->
+
+        <!-- --- HTML cho Glass Radio Group --- -->
+        <!-- Nguồn: Uiverse.io by chase2k25 -->
+        <div class="glass-radio-group">
+          <input type="radio" name="plan" id="glass-silver" checked="" />
+          <label for="glass-silver">Silver</label>
+
+          <input type="radio" name="plan" id="glass-gold" />
+          <label for="glass-gold">Gold</label>
+
+          <input type="radio" name="plan" id="glass-platinum" />
+          <label for="glass-platinum">Platinum</label>
+
+          <div class="glass-glider"></div>
+        </div>
+        <!-- --- Hết HTML cho Glass Radio Group --- -->
+
+
+        <!-- --- Nội dung động cho Radio Group --- -->
+        <!-- Panel này chỉ hiển thị khi "Silver" được chọn -->
+        <div id="silver-content" class="content-panel">
+            
+            <!-- --- HTML cho Card (Lặp lại 15 lần) --- -->
+            <!-- 1 -->
+            <div class="card">
+              <img class="img" src="https://i.imgur.com/1GpVQJb.png" alt="Logo">
+              <div class="textBox">
+                <div class="textContent">
+                  <p class="h1">Clans of Clash</p>
+                  <span class="span">12 min ago</span>
+                </div>
+                <p class="p">Xhattmahs is not attacking your base!</p>
+              </div>
+              <div class="download-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="8 12 12 16 16 12"></polyline>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                </svg>
+              </div>
+            </div>
+            <!-- 2 -->
+            <div class="card">
+              <img class="img" src="https://i.imgur.com/1GpVQJb.png" alt="Logo">
+              <div class="textBox">
+                <div class="textContent">
+                  <p class="h1">Clans of Clash</p>
+                  <span class="span">13 min ago</span>
+                </div>
+                <p class="p">Your shield is running out!</p>
+              </div>
+              <div class="download-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="8 12 12 16 16 12"></polyline>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                </svg>
+              </div>
+            </div>
+            <!-- 3 -->
+            <div class="card">
+              <img class="img" src="https://i.imgur.com/1GpVQJb.png" alt="Logo">
+              <div class="textBox">
+                <div class="textContent">
+                  <p class="h1">Clans of Clash</p>
+                  <span class="span">15 min ago</span>
+                </div>
+                <p class="p">Builder is free.</p>
+              </div>
+              <div class="download-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="8 12 12 16 16 12"></polyline>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                </svg>
+              </div>
+            </div>
+            <!-- 4 -->
+            <div class="card">
+              <img class="img" src="https://i.imgur.com/1GpVQJb.png" alt="Logo">
+              <div class="textBox">
+                <div class="textContent">
+                  <p class="h1">Clans of Clash</p>
+                  <span class="span">20 min ago</span>
+                </div>
+                <p class="p">Clan war is starting soon!</p>
+              </div>
+              <div class="download-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="8 12 12 16 16 12"></polyline>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                </svg>
+              </div>
+            </div>
+            <!-- 5 -->
+            <div class="card">
+              <img class="img" src="https://i.imgur.com/1GpVQJb.png" alt="Logo">
+              <div class="textBox">
+                <div class="textContent">
+                  <p class="h1">Clans of Clash</p>
+                  <span class="span">22 min ago</span>
+                </div>
+                <p class="p">Troops are ready for battle.</p>
+              </div>
+              <div class="download-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="8 12 12 16 16 12"></polyline>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                </svg>
+              </div>
+            </div>
+            <!-- 6 -->
+            <div class="card">
+              <img class="img" src="https://i.imgur.com/1GpVQJb.png" alt="Logo">
+              <div class="textBox">
+                <div class="textContent">
+                  <p class="h1">Clans of Clash</p>
+                  <span class="span">25 min ago</span>
+                </div>
+                <p class="p">You have been promoted!</p>
+              </div>
+              <div class="download-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="8 12 12 16 16 12"></polyline>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                </svg>
+              </div>
+            </div>
+            <!-- 7 -->
+            <div class="card">
+              <img class="img" src="https://i.imgur.com/1GpVQJb.png" alt="Logo">
+              <div class="textBox">
+                <div class="textContent">
+                  <p class="h1">Clans of Clash</p>
+                  <span class="span">30 min ago</span>
+                </div>
+                <p class="p">New event available.</p>
+              </div>
+              <div class="download-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="8 12 12 16 16 12"></polyline>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                </svg>
+              </div>
+            </div>
+            <!-- 8 -->
+            <div class="card">
+              <img class="img" src="https://i.imgur.com/1GpVQJb.png" alt="Logo">
+              <div class="textBox">
+                <div class="textContent">
+                  <p class="h1">Clans of Clash</p>
+                  <span class="span">31 min ago</span>
+                </div>
+                <p class="p">You found a new base.</p>
+              </div>
+              <div class="download-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="8 12 12 16 16 12"></polyline>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                </svg>
+              </div>
+            </div>
+            <!-- 9 -->
+            <div class="card">
+              <img class="img" src="https://i.imgur.com/1GpVQJb.png" alt="Logo">
+              <div class="textBox">
+                <div class="textContent">
+                  <p class="h1">Clans of Clash</p>
+                  <span class="span">35 min ago</span>
+                </div>
+                <p class="p">Your collectors are full!</p>
+              </div>
+              <div class="download-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="8 12 12 16 16 12"></polyline>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                </svg>
+              </div>
+            </div>
+            <!-- 10 -->
+            <div class="card">
+              <img class="img" src="https://i.imgur.com/1GpVQJb.png" alt="Logo">
+              <div class="textBox">
+                <div class="textContent">
+                  <p class="h1">Clans of Clash</p>
+                  <span class="span">40 min ago</span>
+                </div>
+                <p class="p">Goblin King wants a word.</p>
+              </div>
+              <div class="download-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="8 12 12 16 16 12"></polyline>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                </svg>
+              </div>
+            </div>
+            <!-- 11 -->
+            <div class="card">
+              <img class="img" src="https://i.imgur.com/1GpVQJb.png" alt="Logo">
+              <div class="textBox">
+                <div class="textContent">
+                  <p class="h1">Clans of Clash</p>
+                  <span class="span">41 min ago</span>
+                </div>
+                <p class="p">New update available!</p>
+              </div>
+              <div class="download-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="8 12 12 16 16 12"></polyline>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                </svg>
+              </div>
+            </div>
+            <!-- 12 -->
+            <div class="card">
+              <img class="img" src="https://i.imgur.com/1GpVQJb.png" alt="Logo">
+              <div class="textBox">
+                <div class="textContent">
+                  <p class="h1">Clans of Clash</p>
+                  <span class="span">45 min ago</span>
+                </div>
+                <p class="p">Clan castle treasure collected.</p>
+              </div>
+              <div class="download-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="8 12 12 16 16 12"></polyline>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                </svg>
+              </div>
+            </div>
+            <!-- 13 -->
+            <div class="card">
+              <img class="img" src="https://i.imgur.com/1GpVQJb.png" alt="Logo">
+              <div class="textBox">
+                <div class="textContent">
+                  <p class="h1">Clans of Clash</p>
+                  <span class="span">50 min ago</span>
+                </div>
+                <p class="p">Research complete!</p>
+              </div>
+              <div class="download-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="8 12 12 16 16 12"></polyline>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                </svg>
+              </div>
+            </div>
+            <!-- 14 -->
+            <div class="card">
+              <img class="img" src="https://i.imgur.com/1GpVQJb.png" alt="Logo">
+              <div class="textBox">
+                <div class="textContent">
+                  <p class="h1">Clans of Clash</p>
+                  <span class="span">55 min ago</span>
+                </div>
+                <p class="p">You have unread messages.</p>
+              </div>
+              <div class="download-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="8 12 12 16 16 12"></polyline>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                </svg>
+              </div>
+            </div>
+            <!-- 15 -->
+            <div class="card">
+              <img class="img" src="https://i.imgur.com/1GpVQJb.png" alt="Logo">
+              <div class="textBox">
+                <div class="textContent">
+                  <p class="h1">Clans of Clash</p>
+                  <span class="span">59 min ago</span>
+                </div>
+                <p class="p">Welcome back, Chief!</p>
+              </div>
+              <div class="download-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="8 12 12 16 16 12"></polyline>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                </svg>
+              </div>
+            </div>
+            <!-- --- Hết HTML cho Card --- -->
+
+        </div>
+
+        <!-- Panel này chỉ hiển thị khi "Gold" được chọn -->
+        <div id="gold-content" class="content-panel">
+            <p class="text-lg text-zinc-600 dark:text-zinc-300">Nội dung cho Gold sẽ xuất hiện ở đây.</p>
+        </div>
+
+        <!-- Panel này chỉ hiển thị khi "Platinum" được chọn -->
+        <div id="platinum-content" class="content-panel">
+            <p class="text-lg text-zinc-600 dark:text-zinc-300">Nội dung cho Platinum sẽ xuất hiện ở đây.</p>
+        </div>
+        <!-- --- Hết nội dung động --- -->
+
+
+    </div>
+
+    <script>
+        // JavaScript để bật/tắt dark mode
+        const checkbox = document.getElementById('toggle'); /* ĐÃ THAY ĐỔI: 'checkbox' thành 'toggle' */
+        const htmlEl = document.documentElement;
+
+        function updateTheme() {
+            if (checkbox.checked) {
+                // Đã chọn = Day Mode = Light Theme
+                htmlEl.classList.remove('dark');
+            } else {
+                // Không chọn = Night Mode = Dark Theme
+                htmlEl.classList.add('dark');
+            }
+        }
+
+        // Đặt trạng thái ban đầu khi tải trang
+        updateTheme();
+
+        // Thêm trình nghe sự kiện
+        checkbox.addEventListener('change', updateTheme);
+    </script>
+
+</body>
+</html>
